@@ -1,0 +1,151 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Default.master.cs" Inherits="_Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">   
+      <title></title>   
+      <asp:ContentPlaceHolder id="head" runat="server">  
+
+      </asp:ContentPlaceHolder>  
+       <style type="text/css">  
+ a{ color:#000000;text-decoration:none; }    
+ a:hover{color:red;}     
+.style1{width: 97%;border: 1px solid #333333;background-color: #C0C0C0;} 
+.style2{text-align: center;}   
+.style3{height: 140px;font-size: xx-large;background-color: #FFCC00;} 
+.style4{height: 68px;color: #333333;background-color: #666666;}      
+.style5{color: #FFFFCC;background-color: #FFFF99;} 
+.style6{width: 770px;height: 312px;}   
+.style8{height: 312px;width: 199px;}  
+           .auto-style1 {
+               width: 803px;
+               height: 312px;
+           }
+           .auto-style2 {
+               margin-left: 4px;
+           }
+ </style>
+
+</head>
+<body style="text-align: center;background-color:#99CCFF">   
+<form id="form1" runat="server">   
+<div><table cellspacing="1" class="style1" align="center">   
+
+<tr>
+    <td class="style3" colspan="3"><strong>وب سایت خبری مؤسسه نسیم وحی خلخال</strong></td>
+
+</tr> 
+     
+<tr>
+ <td class="style5" colspan="3"><div style="float:right;padding-right:5px;color:Black;">  
+<a href="Default.aspx">صفحه نخست</a> | <a href="ContactUs.aspx">ارتباط با ما</a> |        
+ <a href="AboutUs.aspx">درباره ما</a> |<a href="AdminPage.aspx">مدیریت صفحه</a></div>
+</td>
+</tr> 
+
+<tr><td class="style8" valign="top">
+<div style="border-bottom:1px solid silver;padding:0px 0px 0px 0px;background-color:Purple;width:100%;height:30px;color:White">
+    <b>ساعت</b> 
+</div>  
+<div style="border:1px solid Purple;">   
+         <object height="150" style="width: 170px"><param name="movie" value="Clock1.swf"  WMODE="transparent">
+ <embed src="Clock1.swf" width="190px" height="150px" WMODE="transparent"></embed></object> </div>                  
+       <br/>     
+<%--<div style="border-bottom:1px solid silver;padding:0px 0px 0px 0px;backgroundcolor:Purple;width:100%;height:30px;color:White">     --%>
+ <div style="border-bottom:1px solid silver;padding:0px 0px 0px 0px;background-color:Purple;width:100%;height:30px;color:White">
+
+    <b>منوی کاربری</b> 
+
+</div>   
+<div style="border:1px solid Purple;">
+    
+</div>  
+
+    </td>                
+<td class="auto-style1" valign="top"> 
+ <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"> 
+     <p style="direction: rtl" class="style2">  محل ContentPlaceHolder</p> 
+
+ </asp:ContentPlaceHolder>
+
+</td> 
+ <td class="style8" valign="top"> 
+ <%--<div style="border-bottom:1px solid silver;padding:0px 0px 0px 0px;backgroundcolor:Purple;width:100%;height:30px;color:White">--%> 
+<div style="border-bottom:1px solid silver;padding:0px 0px 0px 0px;background-color:Purple;width:100%;height:30px;color:White">
+
+<b>دسته خبرها</b> 
+
+ </div> 
+ <div style="border:1px solid Purple;">  
+
+     <asp:DataList ID="DataList1" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="1" CssClass="auto-style2" DataKeyField="CatID" DataSourceID="ObjectDataSource1" GridLines="Horizontal" Width="100%">
+         <AlternatingItemStyle BackColor="#F7F7F7" />
+         <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+         <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+         <ItemStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+         <ItemTemplate>
+             <%--CatID:--%>
+            <%-- <asp:Label ID="CatIDLabel" runat="server" Text='<%# Eval("CatID") %>' />--%>
+            <%-- <br />--%>
+           <%--  CatName:--%>
+             <asp:Label ID="CatNameLabel" runat="server" Text='<%# Eval("CatName") %>' />
+             <%--<br />--%>
+<br />
+         </ItemTemplate>
+         <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+     </asp:DataList>
+     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllNewsCat" TypeName="DataSetTableAdapters.tblNewsCatTableAdapter"></asp:ObjectDataSource>
+
+ </div> 
+ <br/> 
+<%--<div style="border-bottom:1px solid silver;padding:0px 0px 0px 0px;backgroundcolor:Purple;width:100%;height:30px;color:White">--%>
+   <div style="border-bottom:1px solid silver;padding:0px 0px 0px 0px;background-color:Purple;width:100%;height:50px;color:White">
+
+      <b>پیوندهای سایت</b>                    
+
+</div> 
+ <div style="border:1px solid Purple;">     
+
+     <asp:DataList ID="DataList2" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyField="LinkID" DataSourceID="ObjectDataSource2" GridLines="Horizontal" Width="100%">
+         <AlternatingItemStyle BackColor="#F7F7F7" />
+         <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+         <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+         <ItemStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+         <ItemTemplate>
+             <%--LinkID:--%>
+            <%-- <asp:Label ID="LinkIDLabel" runat="server" Text='<%# Eval("LinkID") %>' />
+             <br />--%>
+            <%-- LinkName:--%>
+             <asp:Label ID="LinkNameLabel" runat="server" Text='<%# Eval("LinkName") %>' />
+             <br />
+             <%--LinkUrl:--%>
+             <asp:Label ID="LinkUrlLabel" runat="server" Text='<%# Eval("LinkUrl") %>' />
+<br />
+            <%-- LinkDescr:--%>
+             <asp:Label ID="LinkDescrLabel" runat="server" Text='<%# Eval("LinkDescr") %>' />
+             <br />
+             <br />
+         </ItemTemplate>
+         <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+     </asp:DataList>
+     <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllLink" TypeName="DataSetTableAdapters.tblLinkTableAdapter"></asp:ObjectDataSource>
+
+ </div>    
+
+ </td>            
+
+</tr> 
+
+<tr>
+    <td class="style4" colspan="3">CopyRight 2017 - WebDeigner : S.M.H.S</td>
+
+</tr>        
+
+</table>
+
+</div>
+
+</form>
+</body>
+</html>

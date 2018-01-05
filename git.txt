@@ -1,0 +1,5 @@
+git init
+git remote add origin https://github.com/hossein5599/WebSiteForTraining.git
+git add .
+git commit
+git push -u origin master
